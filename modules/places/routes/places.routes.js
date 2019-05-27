@@ -13,13 +13,13 @@ acl.allow([
     allows: [
       {
         permissions: '*',
-        resources: '/api/v1/examples',
+        resources: '/api/v2/places',
       },
     ],
   },
 ]);
 
 router
-  .get('/api/v1/places', secured, placesController.getPlaces)
+  .get('/api/v2/places', secured, placesController.getPlaces)
   
 module.exports = router;
