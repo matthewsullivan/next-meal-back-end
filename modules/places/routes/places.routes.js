@@ -8,6 +8,7 @@ const placesController = require(path.resolve(
 ));
 
 router
+  .get('/api/v2/place', placesController.getPlace)
   .get('/api/v2/places', placesController.getPlaces)
   
 module.exports = router;
