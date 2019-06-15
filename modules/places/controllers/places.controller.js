@@ -43,16 +43,18 @@ module.exports = {
    * @param {object} ctx
    */
   getPlaces: async (ctx) => {
-    const location = ctx.query.location;
-    const radius = ctx.query.radius;
-    const tags = ctx.query.tags;
-
-    const place = await getPlace(location);
-
-    const coordinates = `${place.geometry.location.lat},${place.geometry.location.lng}`
-
-    const places = await getPlaces(coordinates, radius, tags);
+    const location = await getPlace(ctx.query.location);
+    const places = [];
     
+    const coordinates = `${location.geometry.location.lat},${location.geometry.location.lng}`;
+    const nearby = await getPlaces(coordinates, ctx.query.radius, ctx.query.tags);
+
+    for (const item of nearby) {
+      const place = await getPlace(item.place_id);
+
+      places.push(place);
+    }
+      
     ctx.body = places;
   },
 };
