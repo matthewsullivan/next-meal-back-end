@@ -64,7 +64,7 @@
   },
   "scripts": {
     "start": "node --inspect server.js",
-    "start nodemon": "nodemon --inspect server.js"
+    "nodemon": "nodemon --inspect server.js"
   },
   "version": "2.0.0"
 }
