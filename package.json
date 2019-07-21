@@ -63,7 +63,7 @@
     "type-detect": "1.0.0"
   },
   "scripts": {
-    "start": "node --inspect server.js",
+    "server": "node --inspect server.js",
     "nodemon": "nodemon --inspect server.js"
   },
   "version": "2.0.0"
